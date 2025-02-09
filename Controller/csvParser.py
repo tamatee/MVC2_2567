@@ -1,7 +1,6 @@
 import csv
 
 csv_path = "Model/database.csv"
-csv_mont_path = "Model/mont.csv"
 
 def parse_csv():
 	with open(csv_path, mode='r') as file:

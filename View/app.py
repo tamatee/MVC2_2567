@@ -36,9 +36,10 @@ class MainWindow(QWidget):
 
 	def confirmButtonClicked(self):
 		suitId = self.suitIdInput.text()
-		isValid, msg = validateInput(suitId)
-		print(f"this debug message: can send to input validator =>{isValid}")
-		if isValid:
+		returnBoolean, msg = validateInput(suitId)
+		print(f"this debug message: can send to input validator =>{returnBoolean}")
+
+		if returnBoolean:
 			print("Valid")
 			QMessageBox.about(self, "Suit Status", f"The Suit is in good condition.")
 		else:
