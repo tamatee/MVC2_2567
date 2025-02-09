@@ -45,6 +45,12 @@ class MainWindow(QWidget):
 		else:
 			print(msg)
 
+	def repairWindow(self):
+		print("Repair Window Must Render")
+
+	def repairButtonClicked(self):
+		print("Repair Button Clicked")
+
 if __name__ == "__main__":
 	app = QApplication(sys.argv)
 	window = MainWindow()
