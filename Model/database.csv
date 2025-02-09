@@ -1,0 +1,15 @@
+cowID, Name, nom, age, specie, milking_status
+23456789, CowA, 3, 5y5m, Cow, false
+34567890, CowB, 4, 9y5m, Cow, false
+45678901, CowC, 3, 8y3m, Cow, false
+56789012, CowD, 4, 7y2m, Cow, false
+67890123, CowE, 3, 7y10m, Cow, false
+78901234, CowF, 4, 8y7m, Cow, false
+89012345, CowG, 3, 2y4m, Cow, false
+90123456, CowH, 4, 7y8m, Cow, false
+10234567, CowI, 3, 3y9m, Cow, false
+11345678, CowJ, 4, 5y11m, Cow, false
+85057589, CowK, 3, 6y1m, Cow, false
+98731353, CowL, 4, 4y6m, Cow, false
+44444444, GoatA, , , Goat,
+33333333, GoatB, , , Goat,
