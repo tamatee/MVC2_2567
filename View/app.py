@@ -1,8 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
 import sys
 from Controller.inputValidator import validateInput
-# from Controller.csvParser import parse_csv
-# from Controller.milkProcess import milkCow
+from Controller.suitProcess import repairSuit
 
 class MainWindow(QWidget):
 	def __init__(self):
@@ -40,19 +39,31 @@ class MainWindow(QWidget):
 		print(f"this debug message: can send to input validator =>{returnBoolean}")
 
 		if returnBoolean:
-			print("Valid")
+			self.window = RepairWindow()
+			self.window.show()
 			QMessageBox.about(self, "Suit Status", f"The Suit is in good condition.")
 		else:
-			print(msg)
+			QMessageBox.about(self, "Suit Status", msg)
 
-	def repairWindow(self):
-		print("Repair Window Must Render")
+class RepairWindow(QWidget):
+	def __init__(self):
+		super().__init__()
+		#Create a window panel
+		self.setWindowTitle("REPAIR SUIT")
+		self.setGeometry(200, 200, 200, 200)
 
-	def repairButtonClicked(self):
-		print("Repair Button Clicked")
+		self.layout = QVBoxLayout()
+
+		#Create labels for the input fields
+		self.suitIdLabel = QLabel("Enter Suit ID:")
+
+	def confirmButtonClicked(self):
+		suitId = self.suitIdInput.text()
+		returnBoolean, msg = validateInput(suitId)
+		print(f"this debug message: can send to input validator =>{returnBoolean}")
 
 if __name__ == "__main__":
 	app = QApplication(sys.argv)
-	window = MainWindow()
-	window.show()
+	w = MainWindow()
+	w.show()
 	sys.exit(app.exec())
