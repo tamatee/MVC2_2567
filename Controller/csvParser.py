@@ -1,51 +1,28 @@
 import csv
 
-csv_path = "Model/database.csv"
+csvPath = "Model/database_hero_suit.csv"
 
-def parse_csv():
-	with open(csv_path, mode='r') as file:
-		csv_reader = csv.reader(file)
+def parseCsv():
+	with open(csvPath, mode='r', encoding='utf-8') as file:
+		csvReader = csv.reader(file)
 		data = []
-		next(csv_reader)  # Skip the first row
-		for row in csv_reader:
+		next(csvReader)  # Skip the first row
+		for row in csvReader:
 			data.append(row)
 		return data
 
-def parse_mont_csv():
-	with open(csv_mont_path, mode='r') as file:
-		csv_reader = csv.reader(file)
-		data = []
-		next(csv_reader)  # Skip the first row
-		for row in csv_reader:
-			data.append(row)
-		return data
-
-def search_cow(cow_id):
-    data = parse_csv()  # Get the data from the CSV file
+def searchSuit(suitId):
+    data = parseCsv()  # Get the data from the CSV file
 
     for row in data:
-        if row[0] == cow_id:  # Check if the cow_id matches
-            if row[4].split(" ")[1] == "Goat":  # Check if the species is a goat in column 5
-                print("Hit: This is a goat!")
-                return False
-            else :
-                print("Hit: This is a cow!")
-                return True
+        if row[0] == suitId:  # Check if the cow_id matches
+            print(f"Hit: here your suit{row}")
+            return False
 
-def edit_status_Milked(cow_id):
-	data = parse_csv()
+def repairDuraStatus(suitId):
+	data = parseCsv()
 	for row in data:
-		if row[0] == cow_id:
-			row[5] = "Milked"
-			break
-	return True
-
-def send_to_Mont(cow_id):
-	data = parse_csv()
-	data_mont = parse_mont_csv()
-	for row in data:
-		if row[0] == cow_id:
-			csv.writer(data_mont, row)
-			row = ""
+		if row[0] == suitId:
+			row[2] = min(row[2] + 25, 100)
 			break
 	return True
